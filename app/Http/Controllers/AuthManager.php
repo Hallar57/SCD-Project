@@ -11,6 +11,7 @@ use Laravel\Socialite\Facades\Socialite;
 
 class AuthManager extends Controller
 {
+
     function registrationPost(Request $request)
     {
         $request->validate([
@@ -38,6 +39,9 @@ class AuthManager extends Controller
 
         if(Auth::attempt($credentials)){
             $user = Auth::user();
+            if ($user->role === 'admin') {
+                return redirect()->route('admin.home');
+            }
             return redirect()->route('home');
         }
         return redirect(route('login'))->with("error","Login failed");

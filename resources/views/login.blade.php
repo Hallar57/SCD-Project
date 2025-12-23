@@ -1,4 +1,4 @@
-@extends('layout')
+@extends('Layouts.layout')
 @section('title', 'Login')
 @section('content')
 
@@ -37,7 +37,7 @@
 
             <hr>
 
-            <div class="text-center mt-3">
+            <div class="text-center my-3">
                 <a href="{{ route('auth.google.redirect') }}" class="btn btn-danger w-100">
                     <i class="fab fa-google me-2"></i> Login with Google
                 </a>

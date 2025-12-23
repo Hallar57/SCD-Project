@@ -29,7 +29,6 @@
                 </span>
             </div>
 
-            {{-- Google reCAPTCHA --}}
             <div class="mb-3">
                 {!! NoCaptcha::display() !!}
 

@@ -5,10 +5,8 @@ use App\Http\Controllers\AuthManager;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\GoogleController;
+use App\Http\Controllers\Restaurants;
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
 
 Route::get('/login', function () {
     return view('login');
@@ -30,3 +28,12 @@ Route::get('/auth/google/callback', [GoogleController::class, 'handleGoogleCallb
     ->name('auth.google.callback');
 
 Route::get('/logout', [AuthManager::class , 'logout'])->name('logout');
+
+Route::get('/', [Restaurants::class, 'index'])->name('home');
+
+Route::get('/restaurant/{id}', [Restaurants::class, 'show'])
+    ->name('restaurant.show');
+
+Route::get('/admin', [Restaurants::class, 'adminHome'])
+    ->name('admin.home');
+
