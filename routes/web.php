@@ -1,8 +1,6 @@
 <?php
 
-use App\Http\Controllers\AdminUserController;
 use App\Http\Controllers\AuthManager;
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\GoogleController;
 use App\Http\Controllers\Restaurants;
@@ -37,3 +35,22 @@ Route::get('/restaurant/{id}', [Restaurants::class, 'show'])
 Route::get('/admin', [Restaurants::class, 'adminHome'])
     ->name('admin.home');
 
+Route::get('/admin/edit/{id}', [Restaurants::class, 'edit'])
+    ->name('admin.edit');
+
+Route::post('/admin/update/{id}', [Restaurants::class, 'update'])
+    ->name('admin.update');
+
+Route::get('/admin/create', function () {
+    return view('admin/create');
+})->name('admin.create');
+
+Route::post('/admin/create', [Restaurants::class, 'create'])
+    ->name('admin.createPost');
+
+Route::middleware(['auth', 'admin'])->group(function () {
+    Route::resource('restaurants', Restaurants::class);
+});
+
+Route::delete('/admin/delete/{id}', [Restaurants::class, 'destroy'])
+    ->name('admin.restaurants.destroy');

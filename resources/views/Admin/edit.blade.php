@@ -1,91 +1,66 @@
-@extends('Layouts.layout')
+@extends('Layouts.admin_layout')
+@section('title', 'Edit Restaurant')
 @section('content')
 <div class="container mt-4">
-    <h2>My Profile</h2>
+    <h2 class="fw-bold mb-0" >Edit Restaurant</h2>
 
-    <form action="{{ route('profile.update') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('admin.update', $restaurant->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
-
-        {{-- Name (pre-populated, editable) --}}
         <div class="mb-3">
             <label class="form-label">Name</label>
             <input
                 type="text"
                 name="name"
                 class="form-control"
-                value="{{ old('name', $user->name) }}"
+                value="{{ old('name', $restaurant->name) }}"
                 required
             >
         </div>
 
-        {{-- Email (pre-populated, read-only or disabled) --}}
-        <div class="mb-3">
-            <label class="form-label">Email</label>
-            <input
-                type="email"
+        <div class="form-floating mb-3">
+            <textarea
+                name="description"
                 class="form-control"
-                value="{{ $user->email }}"
-                disabled
-            >
+                id="floatingTextarea"
+                placeholder="Description"
+                style="height: 120px"
+            >{{ old('description', $restaurant->description) }}</textarea>
+                    <label for="floatingTextarea">Description</label>
         </div>
 
-        @if($user->profile_image)
+
+    @if($restaurant->image)
             <div class="mb-3">
-                <p>Current Profile Image:</p>
-                <img src="{{ asset('storage/' . $user->profile_image) }}"
-                     alt="Profile Image"
-                     style="width: 120px; height: 120px; object-fit: cover; border-radius: 50%;">
+                <p>Current Image:</p>
+                <img src="{{ asset('storage/' . $restaurant->image) }}"
+                     alt="Image"
+                     style="width: 200px; height: 120px; object-fit: cover; border-radius: 10%;">
             </div>
         @endif
 
 
         <div class="mb-3">
-            <label class="form-label">Profile Image</label>
-            <input type="file" name="profile_image" class="form-control" accept="image/*">
+            <label class="form-label">Image</label>
+            <input type="file" name="image" class="form-control" accept="image/*">
         </div>
 
-
-        {{-- Phone --}}
         <div class="mb-3">
             <label class="form-label">Phone</label>
             <input
                 type="text"
                 name="phone"
                 class="form-control"
-                value="{{ old('phone', $user->phone) }}"
+                value="{{ old('phone', $restaurant->phone) }}"
             >
         </div>
 
-        {{-- Address --}}
         <div class="mb-3">
             <label class="form-label">Address</label>
             <input
                 type="text"
                 name="address"
                 class="form-control"
-                value="{{ old('address', $user->address) }}"
-            >
-        </div>
-
-        {{-- City --}}
-        <div class="mb-3">
-            <label class="form-label">City</label>
-            <input
-                type="text"
-                name="city"
-                class="form-control"
-                value="{{ old('city', $user->city) }}"
-            >
-        </div>
-
-        {{-- Country --}}
-        <div class="mb-3">
-            <label class="form-label">Country</label>
-            <input
-                type="text"
-                name="country"
-                class="form-control"
-                value="{{ old('country', $user->country) }}"
+                value="{{ old('address', $restaurant->address) }}"
             >
         </div>
 
