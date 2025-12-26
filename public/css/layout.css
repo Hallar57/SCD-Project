@@ -1,0 +1,110 @@
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+}
+
+:root {
+    --primary-red: #e53935;
+    --dark-red: #c62828;
+    --light-red: #ffebee;
+}
+
+body {
+    background-color: #f8f9fa;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--primary-red) !important;
+}
+
+.navbar .nav-link,
+.navbar .navbar-brand {
+    color: #fff !important;
+    font-weight: 500;
+}
+
+.navbar .nav-link:hover {
+    color: #ffecec !important;
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--primary-red);
+    border-color: var(--primary-red);
+}
+
+.btn-primary:hover {
+    background-color: var(--dark-red);
+    border-color: var(--dark-red);
+}
+
+/* Cards */
+.restaurant-card {
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.25s ease;
+}
+
+.card {
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.25s ease;
+}
+
+.restaurant-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+
+/* Headings */
+h1, h2, h3, h4, h5 {
+    color: #212529;
+}
+
+/* Alerts */
+.alert-success {
+    border-left: 5px solid #2e7d32;
+}
+
+.alert-danger {
+    border-left: 5px solid var(--primary-red);
+}
+
+/* Forms */
+.form-control:focus {
+    border-color: var(--primary-red);
+    box-shadow: 0 0 0 0.2rem rgba(229,57,53,.25);
+}
+
+#navbar-button {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+#navbar-button:hover {
+    color: #fff;
+    background-color: #d12714; /* red theme */
+    transform: translateY(-2px);
+}

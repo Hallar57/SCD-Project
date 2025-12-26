@@ -17,13 +17,13 @@
 
 
                 <table class="table table-hover table-striped mb-0 align-middle">
-                    <thead class="table-dark">
+                    <thead>
                     <tr>
-                        <th style="width: 5%">#</th>
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th class="text-center" style="width: 12%">Image</th>
-                        <th class="text-center" style="width: 18%">Actions</th>
+                        <th style=" color:white; background: #e53935; width: 5%">#</th>
+                        <th style=" color:white; background: #e53935;">Name</th>
+                        <th style=" color:white; background: #e53935;">Description</th>
+                        <th class="text-center" style=" color:white; background: #e53935; width: 12%">Image</th>
+                        <th class="text-center" style=" color:white; background: #e53935; width: 18%">Actions</th>
                     </tr>
                     </thead>
 
@@ -62,7 +62,7 @@
                                         Edit
                                     </a>
 
-                                    <a href="{{ route('admin.restaurants.menu', $restaurant->id) }}"
+                                    <a href="{{ route('admin.menu.edit', $restaurant->id) }}"
                                        class="btn btn-sm btn-outline-primary">
                                         Menu
                                     </a>

@@ -2,7 +2,16 @@
 @section('title', 'Create Restaurant')
 @section('content')
     <div class="container mt-4">
-        <h2 class="fw-bold mb-0" >Create Restaurant</h2>
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h3 class="fw-bold mb-0">
+                Create Restaurant
+            </h3>
+
+            <a href="{{ route('admin.home') }}" class="btn btn-outline-secondary btn-sm">
+                ← Back to Restaurants
+            </a>
+        </div>
+
         <form action="{{ route('admin.createPost')}}" method="POST" enctype="multipart/form-data">
             @csrf
 

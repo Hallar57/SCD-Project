@@ -9,10 +9,20 @@ use Illuminate\Support\Facades\Storage;
 
 class Restaurants extends Controller
 {
-    public function index() {
-        $restaurants = Restaurant::all();
+    public function index(Request $request)
+    {
+        $query = Restaurant::query();
+
+        if ($request->filled('search')) {
+            $query->where('name', 'like', '%' . $request->search . '%')
+                ->orWhere('address', 'like', '%' . $request->search . '%');
+        }
+
+        $restaurants = $query->get();
+
         return view('home', compact('restaurants'));
     }
+
 
     public function show($id)
     {

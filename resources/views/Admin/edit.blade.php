@@ -2,7 +2,15 @@
 @section('title', 'Edit Restaurant')
 @section('content')
 <div class="container mt-4">
-    <h2 class="fw-bold mb-0" >Edit Restaurant</h2>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h3 class="fw-bold mb-0">
+            Edit Restaurant
+        </h3>
+
+        <a href="{{ route('admin.home') }}" class="btn btn-outline-secondary btn-sm">
+            ← Back to Restaurants
+        </a>
+    </div>
 
     <form action="{{ route('admin.update', $restaurant->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
