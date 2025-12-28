@@ -1,4 +1,4 @@
-@extends('Layouts.layout')
+@extends('Layouts.admin_layout')
 @section('title','Menu')
 @section('content')
     <div class="container mt-4">
@@ -118,7 +118,7 @@
                                         <form
                                             action="{{ route('admin.menu.destroy', $menu->id) }}"
                                             method="POST"
-                                            onsubmit="return confirm('Are you sure you want to delete this restaurant?');"
+                                            onsubmit="return confirm('Are you sure you want to delete this item?');"
                                         >
                                             @csrf
                                             @method('DELETE')
