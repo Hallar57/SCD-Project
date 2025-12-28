@@ -1,5 +1,5 @@
 @extends('Layouts.admin_layout')
-@section('title', 'Admin | Restaurants')
+@section('title', 'Admin | RestaurantController')
 @section('content')
     <div class="container mt-4">
 

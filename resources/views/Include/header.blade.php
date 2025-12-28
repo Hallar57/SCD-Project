@@ -18,7 +18,8 @@
 
             @guest
                 <li class="nav-item">
-                    <a class="nav-link" href="{{route('login')}}"><b>Login</b></a>
+                    <a class="btn btn-outline-light btn-sm ms-1" href="{{route('login')}}">
+                        <b>Login</b></a>
                 </li>
 
                 <li class="nav-item">
@@ -28,10 +29,21 @@
 
             @auth
                     <li class="nav-item">
+                        <form action="{{route('cart.index')}}" method="GET" class="mb-0">
+                            @csrf
+                            <button type="submit"
+                                    style="color: #f61500"
+                                    class="btn navbar-right btn-light btn-sm">
+                                <b>Cart</b>
+                            </button>
+                        </form>
+                    </li>
+                    <li class="nav-item">
                         <form action="{{route('logout')}}" method="GET" class="mb-0">
                             @csrf
                             <button type="submit"
-                                    class="btn btn-danger btn-sm">
+                                    style="background: #871f1f; color: white"
+                                    class="btn navbar-right btn-sm">
                                 <b>Logout</b>
                             </button>
                         </form>
