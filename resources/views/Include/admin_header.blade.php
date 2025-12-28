@@ -9,7 +9,7 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto align-items-center gap-2">
                     <li class="nav-item">
-                        <form action="{{ route('logout') }}" method="POST" class="mb-0">
+                        <form action="{{ route('logout') }}" method="GET" class="mb-0">
                             @csrf
                             <button type="submit"
                                     class="btn btn-danger btn-sm"
