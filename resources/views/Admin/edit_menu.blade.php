@@ -3,7 +3,6 @@
 @section('content')
     <div class="container mt-4">
 
-        {{-- PAGE HEADER --}}
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h3 class="fw-bold mb-0">
                 {{ $restaurant->name }} — Menu
@@ -14,7 +13,6 @@
             </a>
         </div>
 
-        {{-- ADD MENU ITEM --}}
         <div class="card shadow-sm mb-4">
             <div style="background: #e53935" class="card-header text-white fw-semibold">
                 Add Menu Item
@@ -48,6 +46,7 @@
                             class="form-control"
                             placeholder="500"
                             required
+                            min="1"
                         >
                     </div>
 

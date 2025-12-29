@@ -12,6 +12,7 @@ use Laravel\Socialite\Facades\Socialite;
 class AuthManager extends Controller
 {
 
+
     function registrationPost(Request $request)
     {
         $request->validate([
@@ -19,6 +20,7 @@ class AuthManager extends Controller
             'email' => 'required|email|unique:users|max:255',
             'password' => 'required|min:8|max:255',
         ]);
+
 
         $data = $request->all();
 
@@ -34,7 +36,7 @@ class AuthManager extends Controller
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
-            //'g-recaptcha-response' => 'required|captcha',
+            'g-recaptcha-response' => 'required|captcha',
         ]);
         $credentials = $request->only('email', 'password');
 

@@ -29,7 +29,6 @@
             <h3 class="fw-bold mb-0">Popular Restaurants</h3>
         </div>
         @include('restaurants.restaurants')
-
     </div>
 
 @endsection

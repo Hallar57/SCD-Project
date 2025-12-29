@@ -14,7 +14,6 @@
 @include('Include.header')
 @yield('content')
 
-{{-- Flash Message Section --}}
 @if(session('success'))
     <div class="alert alert-success alert-dismissible fade show" role="alert">
         {{ session('success') }}
@@ -29,7 +28,6 @@
     </div>
 @endif
 
-{{-- Validation Errors Section --}}
 @if ($errors->any())
     <div class="alert alert-danger alert-dismissible fade show" role="alert">
         <ul>
